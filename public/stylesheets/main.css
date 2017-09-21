@@ -1,0 +1,22 @@
+body{
+    padding-top: 10vh;
+    margin: 0;
+}
+
+.thumbnail img{
+    width:100%;
+    
+}
+
+.thumbnail{
+    padding:0;
+}
+
+.glyphicon-tree-conifer{
+    color: green;
+}
+
+form{
+    margin-bottom: 5px;
+}
+

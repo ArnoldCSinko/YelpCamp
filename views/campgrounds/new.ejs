@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+
+    <div class="container">
+
+        
+            <h2 class="text-center">Create a new campground</h2>
+            
+                <form action="/campgrounds" method="POST">
+                    <div class="form-group">
+                        <label for="campName">Camp Name</label>
+                        <div class="input-group input-group-lg">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" placeholder="Camp Name" name="name" class="form-control" id="campName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="campImage">Image url</label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                            <input type="text" placeholder="Image URL" name="image" class="form-control" id="campImage">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="campPrice">Price</label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" placeholder="Price" name="price" class="form-control" id="campPrice" min="0.01" step="0.01">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="campDescription">Description</label>
+                        <input type="text" placeholder="Description" name="description" class="form-control input-lg" id="campDescription">
+                    </div>
+                    
+                        <button class="btn btn-success btn-block btn-lg">Add New Camp</button>
+                        
+                                <a href="/campgrounds" class="btn btn-danger btn-block btn-lg">Cancel</a>
+                        
+                    
+                </form>
+           
+        
+        
+    </div>
+
+    <% include ../partials/footer %>
