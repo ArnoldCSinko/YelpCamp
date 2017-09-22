@@ -21,6 +21,7 @@ var express         = require("express"),
 
 
 // APP CONFIG
+app.set("port", (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -66,7 +67,7 @@ app.use("/campgrounds",campgroundRoutes);
 app.use(indexRoutes);
 
 //SERVER LISTEN
-app.listen(3000, function(){
+app.listen(app.get("port"), function(){
     console.log("YelpCamp App has started");
 });
 
