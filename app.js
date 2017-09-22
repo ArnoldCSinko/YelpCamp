@@ -26,7 +26,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
-mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
+
+//Mongoose promise library
+mongoose.Promise = global.Promise;
+
+//Database Uri
+const databaseUri = process.env.MONGODB_URI || "mongodb://localhost/yelp_camp";
+//mongodb://masterblaster:melissa@ds147274.mlab.com:47274/yelpcamp
+
+mongoose.connect(databaseUri, {useMongoClient: true})
+    .then(() => console.log("Connected to database"))
+    .catch(err => console.log("Error connecting to database: " + err.message));
+//Development local mongoose.connet url
+//mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
 
 app.use(methodOverride("_method"));
 //SEED THE DATABASE
@@ -67,7 +79,7 @@ app.use("/campgrounds",campgroundRoutes);
 app.use(indexRoutes);
 
 //SERVER LISTEN
-app.listen(app.get("port"), function(){
+app.listen(app.get("port"), process.env.IP, function(){
     console.log("YelpCamp App has started");
 });
 
